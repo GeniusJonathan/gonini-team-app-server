@@ -29,14 +29,16 @@ public class PlayerAvailability {
     @JoinColumn(name = "player_id", nullable = false)
     private Player player;
 
-    private Boolean isAvailable;
+    @Column(columnDefinition = "ENUM('UNKNOWN', 'MAYBE', 'UNAVAILABLE', 'AVAILABLE')")
+    @Enumerated(EnumType.STRING)
+    private AvailabilityStatus status;
 
     public PlayerAvailability() {}
 
     public PlayerAvailability(Game game, Player player) {
         this.game = game;
         this.player = player;
-        this.isAvailable =  false;
+        this.status =  AvailabilityStatus.UNKNOWN;
     }
 
 }
