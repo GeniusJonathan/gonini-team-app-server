@@ -1,10 +1,7 @@
 package com.geniusjonathan.goniniteamappserver.service;
 
 import com.geniusjonathan.goniniteamappserver.exception.ResourceNotFoundException;
-import com.geniusjonathan.goniniteamappserver.model.Game;
-import com.geniusjonathan.goniniteamappserver.model.Player;
-import com.geniusjonathan.goniniteamappserver.model.PlayerAvailability;
-import com.geniusjonathan.goniniteamappserver.model.Team;
+import com.geniusjonathan.goniniteamappserver.model.*;
 import com.geniusjonathan.goniniteamappserver.payload.GameDTO;
 import com.geniusjonathan.goniniteamappserver.payload.PlayerAvailabilityDTO;
 import com.geniusjonathan.goniniteamappserver.repository.GameRepository;
@@ -108,7 +105,7 @@ public class GameService {
         Game game = gameRepository.findById(gameId).orElseThrow(() -> new ResourceNotFoundException("Game", "id", gameId));
         Player player = playerRepository.findById(playerId).orElseThrow(() -> new ResourceNotFoundException("Player", "id", playerId));
         PlayerAvailability playerAvailability = playerAvailabilityRepository.findByGameAndPlayer(game, player).get(0);
-        playerAvailability.setIsAvailable(playerAvailabilityDTO.getIsAvailable());
+        playerAvailability.setStatus(AvailabilityStatus.valueOf(playerAvailabilityDTO.getStatus()));
         playerAvailabilityRepository.save(playerAvailability);
 
     }

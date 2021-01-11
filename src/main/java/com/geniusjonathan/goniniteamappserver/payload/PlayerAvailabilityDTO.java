@@ -1,5 +1,6 @@
 package com.geniusjonathan.goniniteamappserver.payload;
 
+import com.geniusjonathan.goniniteamappserver.model.AvailabilityStatus;
 import lombok.Getter;
 
 import javax.validation.constraints.NotNull;
@@ -8,5 +9,5 @@ import javax.validation.constraints.NotNull;
 public class PlayerAvailabilityDTO {
 
     @NotNull
-    private Boolean isAvailable;
+    private String status;
 }
