@@ -8,12 +8,14 @@ import com.geniusjonathan.goniniteamappserver.repository.GameRepository;
 import com.geniusjonathan.goniniteamappserver.repository.PlayerAvailabilityRepository;
 import com.geniusjonathan.goniniteamappserver.repository.PlayerRepository;
 import com.geniusjonathan.goniniteamappserver.repository.TeamRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class GameService {
 
     @Autowired
